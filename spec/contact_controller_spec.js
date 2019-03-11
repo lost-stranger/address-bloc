@@ -14,9 +14,10 @@ describe("ContactController", () => {
     });
     describe("#addContact", () => {
         it("should add a single contact into the book", (done) => {
-           this.book.addContact("Alice", "001-101-1010").then((contact) => {
+           this.book.addContact("Alice", "001-101-1010", "alice@wonderland.com").then((contact) => {
                expect(contant.name).toBe("Alice");
                expect(contact.phone).toBe("001-101-1010");
+               expect(contact.email).toBe("alice@wonderland.com");
                done();
            })
            .catch ((err) => {
