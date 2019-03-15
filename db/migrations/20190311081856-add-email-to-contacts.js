@@ -7,18 +7,13 @@ module.exports = {
       'email',
       {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        defaultValue: "" 
       }
     )
   },
-  
+
   down: (queryInterface, Sequelize) => {
-    return queryInterface.addColumn({
-      tableName: 'Person',
-      schema: 'public'
-    },
-    'signature',
-    Sequelize.STRING
-  )
+    return queryInterface.removeColumn('Contacts', 'email')
 }
 };
